@@ -30,27 +30,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+    <meta charset="utf-8" />
+    <title>Login — Sistema de Reservas</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Login</h1>
+    <div class="container" role="main" aria-labelledby="login-title">
+        <h1 id="login-title">Entrar</h1>
+        <p class="small">Use seu e-mail e senha para acessar.</p>
 
-        <?php if (!empty($error_message)) echo '<p class="error">' . $error_message . '</p>'; ?>
+        <!-- Mensagem de erro vinda do PHP -->
+        <?php if (!empty($error_message)): ?>
+            <p class="error"><?= htmlspecialchars($error_message) ?></p>
+        <?php endif; ?>
 
-        <form method="POST">
-            <label>E-mail:</label>
-            <input type="email" name="email" required>
+        <form action="login.php" method="post" autocomplete="on" novalidate>
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" required placeholder="gmail@exemplo.com" autofocus>
 
-            <label>Senha:</label>
-            <input type="password" name="password" required>
+            <label for="password">Senha</label>
+            <input id="password" name="password" type="password" required placeholder="••••••••">
 
-            <button type="submit">Entrar</button>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
+                <button type="submit">Entrar</button>
+                <a href="register.php" class="small">Criar conta</a>
+            </div>
         </form>
-
-        <a href="register.php">Criar conta</a>
     </div>
 </body>
 </html>

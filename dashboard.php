@@ -17,23 +17,53 @@ $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Painel</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="utf-8" />
+    <title>Painel - Sistema de Reservas</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=1.2">
 </head>
 <body>
     <div class="container">
-        <h1>Bem-vindo ao Sistema de Reservas</h1>
-        <a href="logout.php">Sair</a>
+        <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <h1 style="margin:0;font-size:20px;">Sistema de Reservas</h1>
+            <button type="button" onclick="location.href='logout.php'">Sair</button>
+        </header>
 
-        <h2>Salas disponíveis</h2>
-        <ul>
-            <?php foreach ($rooms as $room): ?>
-                <li><?= htmlspecialchars($room['name']) ?> (Capacidade: <?= $room['capacity'] ?>)
-                    - <a href="reserve.php?room_id=<?= $room['id'] ?>">Reservar</a>
+        <main>
+            <h2 style="margin-top:0;font-size:16px;">Salas disponíveis</h2>
+
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;">
+                <li style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid #eef0f3;border-radius:8px;background:#fff;">
+                    <div>
+                        <div style="font-weight:700;">Sala A</div>
+                        <div class="small" style="margin-top:4px;color:#666;">Capacidade: 8</div>
+                    </div>
+                    <div>
+                        <button type="button" onclick="alert('Reservar Sala A')">Reservar</button>
+                        <a href="reserve.php"></a>
+                    </div>
                 </li>
-            <?php endforeach; ?>
-        </ul>
+
+                <li style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid #eef0f3;border-radius:8px;background:#fff;">
+                    <div>
+                        <div style="font-weight:700;">Sala B</div>
+                        <div class="small" style="margin-top:4px;color:#666;">Capacidade: 12</div>
+                    </div>
+                    <div>
+                        <button type="button" onclick="alert('Reservar Sala B')">Reservar</button>
+                    </div>
+                </li>
+
+                <li style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid #eef0f3;border-radius:8px;background:#fff;">
+                    <div>
+                        <div style="font-weight:700;">Sala de Reunião</div>
+                        <div class="small" style="margin-top:4px;color:#666;">Capacidade: 20</div>
+                    </div>
+                    <div>
+                        <button type="button" onclick="alert('Reservar Sala de Reunião')">Reservar</button>
+                    </div>
+                </li>
+            </ul>
+        </main>
     </div>
 </body>
 </html>
