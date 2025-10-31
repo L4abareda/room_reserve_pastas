@@ -9,11 +9,11 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+// Busca todas as salas no banco de dados
 $stmt = $pdo->query('SELECT * FROM rooms');
 $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!-- HTMl lixo-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -32,36 +32,25 @@ $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h2 style="margin-top:0;font-size:16px;">Salas disponíveis</h2>
 
             <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;">
-                <li style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid #eef0f3;border-radius:8px;background:#fff;">
-                    <div>
-                        <div style="font-weight:700;">Sala A</div>
-                        <div class="small" style="margin-top:4px;color:#666;">Capacidade: 8</div>
-                    </div>
-                    <div>
-                        <button type="button" onclick="alert('Reservar Sala A')">Reservar</button>
-                        <a href="reserve.php"></a>
-                    </div>
-                </li>
-
-                <li style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid #eef0f3;border-radius:8px;background:#fff;">
-                    <div>
-                        <div style="font-weight:700;">Sala B</div>
-                        <div class="small" style="margin-top:4px;color:#666;">Capacidade: 12</div>
-                    </div>
-                    <div>
-                        <button type="button" onclick="alert('Reservar Sala B')">Reservar</button>
-                    </div>
-                </li>
-
-                <li style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid #eef0f3;border-radius:8px;background:#fff;">
-                    <div>
-                        <div style="font-weight:700;">Sala de Reunião</div>
-                        <div class="small" style="margin-top:4px;color:#666;">Capacidade: 20</div>
-                    </div>
-                    <div>
-                        <button type="button" onclick="alert('Reservar Sala de Reunião')">Reservar</button>
-                    </div>
-                </li>
+                <?php foreach ($rooms as $room): ?>
+                    <li style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid #eef0f3;border-radius:8px;background:#fff;">
+                        <div>
+                            <div style="font-weight:700;">
+                                <?= htmlspecialchars($room['name']) ?>
+                            </div>
+                            <div class="small" style="margin-top:4px;color:#666;">
+                                Capacidade: <?= htmlspecialchars($room['capacity']) ?>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- Botão funcional para reserva -->
+                            <a href="reserve.php?room_id=<?= urlencode($room['id']) ?>" 
+                               style="display:inline-block;padding:8px 14px;background:#007BFF;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;">
+                                Reservar
+                            </a>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </main>
     </div>
