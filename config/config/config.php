@@ -4,7 +4,7 @@
 $host = 'localhost';
 $dbname = 'room_booking'; // nome do banco
 $user = 'root';               // usuário padrão 
-$password = '';               // senha vazia 
+$password = 'root';               // senha vazia 
 
 try {
     // Conexão 
