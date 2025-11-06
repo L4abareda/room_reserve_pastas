@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Login — Sistema de Reservas</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../view/css/style.css">
 </head>
 <body>
     <div class="container" role="main" aria-labelledby="login-title">
@@ -15,7 +15,7 @@
             <p class="error"><?= htmlspecialchars($error_message) ?></p>
         <?php endif; ?>
 
-        <form action="login.php" method="post" autocomplete="on" novalidate>
+        <form action="../controller/controller_login.php" method="post" autocomplete="on" novalidate>
             <label for="email">E-mail</label>
             <input id="email" name="email" type="email" required placeholder="gmail@exemplo.com" autofocus>
 
@@ -24,7 +24,7 @@
 
             <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
                 <button type="submit">Entrar</button>
-                <a href="register.php" class="small">Criar conta</a>
+                <a href="../view/register.php" class="small">Criar conta</a>
             </div>
         </form>
     </div>

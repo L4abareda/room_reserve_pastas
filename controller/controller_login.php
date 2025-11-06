@@ -2,7 +2,7 @@
 
  // página de Login
 session_start();
-require '../config.php'; // faz a conexão com o banco
+require '../config/config.php'; // faz a conexão com o banco
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
@@ -14,11 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
     // Verifica se o e-mail e a senha são iguais
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
-        header('Location: dashboard.php');
+        header('Location: ../view/dashboard.php');
         exit;
     } else {
         $error_message = 'E-mail ou senha incorretos!';

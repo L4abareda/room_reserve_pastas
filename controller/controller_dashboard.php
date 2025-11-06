@@ -2,10 +2,10 @@
 // Painel principal com a listagem das salas disponíveis
 
 session_start();
-require '../config.php';
+require '../config/config.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: ../view/login.php');
     exit;
 }
 

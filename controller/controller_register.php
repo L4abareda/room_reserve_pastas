@@ -1,7 +1,7 @@
 <?php
 // Tela de registro de novos usuários
 
-require '../config.php';
+require '../config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'] ?? '';
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':password', $password);
 
     if ($stmt->execute()) {
-        header('Location: login.php');
+        header('Location: ../view/login.php');
         exit;
     } else {
         $error_message = 'Erro ao criar conta.';

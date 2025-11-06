@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Criar Conta</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../view/css/style.css">
 </head>
 <body>
     <div class="container">
@@ -12,7 +12,7 @@
 
         <?php if (!empty($error_message)) echo '<p class="error">' . $error_message . '</p>'; ?>
 
-        <form method="POST">
+        <form method="POST" action="../controller/controller_register.php">
             <label>Nome:</label>
             <input type="text" name="name" required>
 
@@ -25,7 +25,7 @@
             <button type="submit">Registrar</button>
         </form>
 
-        <a href="login.php">Já tenho conta</a>
+        <a href="../view/login.php">Já tenho conta</a>
     </div>
 </body>
 </html>

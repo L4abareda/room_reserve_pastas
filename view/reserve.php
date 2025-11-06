@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Reservar Sala</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../view/css/style.css">
 </head>
 <body>
     <div class="container">
+        <?php require_once('../controller/controller_view_reserve.php'); ?>
         <h1>Fazer Reserva - <?= htmlspecialchars($room['name']) ?></h1>
 
         <?php if ($error_message): ?>
@@ -16,7 +17,8 @@
             <p class="success"><?= htmlspecialchars($success_message) ?></p>
         <?php endif; ?>
 
-        <form method="POST">
+        <form method="POST" action="../controller/controller_reserve.php">
+            <input type="hidden" name="room_id" value="<?=$_GET['room_id']?> ">
             <label>Data da Reserva:</label>
             <input type="date" name="reservation_date" required
                    min="<?= $currentYear ?>-01-01"
@@ -31,7 +33,7 @@
             <button type="submit">Confirmar Reserva</button>
         </form>
 
-        <a href="dashboard.php">Voltar</a>
+        <a href="../view/dashboard.php">Voltar</a>
     </div>
 </body>
 </html>
