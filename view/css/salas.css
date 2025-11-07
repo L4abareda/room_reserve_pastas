@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+}
+
+h1 {
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.form-sala {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn.criar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn.criar:hover {
+    background-color: #0069d9;
+}
+
+.btn.excluir {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn.excluir:hover {
+    background-color: #c82333;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.voltar:hover {
+    text-decoration: underline;
+}
+
+.msg {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #007bff;
+}

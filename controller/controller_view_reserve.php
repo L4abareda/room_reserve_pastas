@@ -1,3 +1,9 @@
+<?php
+if (!isset($error_message)) $error_message = '';
+if (!isset($success_message)) $success_message = '';
+?>
+
+
 <?php 
 
 // Página para fazer uma reserva de sala

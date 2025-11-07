@@ -17,8 +17,10 @@
             <p class="success"><?= htmlspecialchars($success_message) ?></p>
         <?php endif; ?>
 
-        <form method="POST" action="../controller/controller_reserve.php">
-            <input type="hidden" name="room_id" value="<?=$_GET['room_id']?> ">
+        <!-- Formulário de reserva -->
+        <form method="POST" action="../controller/controller_reserve.php" class="form-reserva">
+            <input type="hidden" name="room_id" value="<?= $_GET['room_id'] ?>">
+            
             <label>Data da Reserva:</label>
             <input type="date" name="reservation_date" required
                    min="<?= $currentYear ?>-01-01"
@@ -30,10 +32,10 @@
             <label>Horário de Fim:</label>
             <input type="time" name="end_time" required>
 
-            <button type="submit">Confirmar Reserva</button>
+            <button type="submit" name="make_reservation" class="btn reservar">Confirmar Reserva</button>
         </form>
 
-        <a href="../view/dashboard.php">Voltar</a>
+        <a href="../view/dashboard.php" class="voltar">Voltar</a>
     </div>
 </body>
 </html>
