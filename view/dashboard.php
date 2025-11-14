@@ -28,6 +28,10 @@
                             </div>
                         </div>
                         <div>
+                            <a href="../view/salas_disponiveis.php?room_id=<?= urlencode($room['id']) ?>" 
+                               style="display:inline-block;padding:8px 14px;background:#007BFF;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;">
+                                Disponíveis
+                            </a>
                             <!-- Botão funcional para reserva -->
                             <a href="../view/reserve.php?room_id=<?= urlencode($room['id']) ?>" 
                                style="display:inline-block;padding:8px 14px;background:#007BFF;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;">
